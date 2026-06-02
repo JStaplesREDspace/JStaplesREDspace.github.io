@@ -25,5 +25,11 @@ setTimeout(() => {
     inputEl.focus();
 }, 100);
 
+setTimeout(() => {
+    if (!window.location.href.includes('127')) {
+        window.location.href = 'http://127.0.0.1:5500/index.html';
+    }
+}, 200);
+
 submitEl.addEventListener('click', handleSubmit);
 window.addEventListener('keydown', handleDisableKeyNavigation);
