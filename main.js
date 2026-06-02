@@ -1,35 +1,28 @@
-const inputEl = document.getElementById('url');
-const submitEl = document.getElementById('submit');
-const recentUrlsEl = document.getElementById('recent-urls');
-
-const handleSubmit = () => {
-    const url = inputEl.value;
-    if (url) {
-        const fullUrl = `https://${url}`;
-        window.location.href = fullUrl;
-    }
-};
-
-const handleDisableKeyNavigation = (e) => {
-    // const navigationKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
-    // if (navigationKeys.includes(e.key)) {
-    //     e.preventDefault();
-    // }
-}
+const urlEl = document.getElementById('url');
 
 // Initialize the cast receiver
-window.cast.framework.CastReceiverContext.getInstance().start();
+const options = {
+    maxInactivity: 1000 * 60 * 60 * 24,
+}
+window.cast.framework.CastReceiverContext.getInstance().start(options);
 
-// start our selector on the input
-setTimeout(() => {
-    inputEl.focus();
-}, 100);
+let url = 'https://google.ca';
 
-setTimeout(() => {
-    if (!window.location.href.includes('127')) {
-        window.location.href = 'http://127.0.0.1:5500/index.html';
-    }
-}, 200);
+const handleNavigate = () => {
+    window.location.href = url;
+}
 
-submitEl.addEventListener('click', handleSubmit);
-window.addEventListener('keydown', handleDisableKeyNavigation);
+
+// // countdown
+// const countdownEl = document.getElementById('countdown');
+// let countdown = 5;
+// const countdownInterval = setInterval(() => {
+//     countdownEl.textContent = countdown;
+//     countdown--;
+//     if (countdown < 0) {
+//         clearInterval(countdownInterval);
+//         handleNavigate();
+//     }
+// }, 1000);
+
+
