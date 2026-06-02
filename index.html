@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portable Chromecast Receiver</title>
-    <style>
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        min-height: 100vh;
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chromecast Static Receiver</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+    <script src="./main.js" defer></script>
+</head>
+<body>
+    <div></div>
+    <div class="contents">
+        <h1>Where would you like to go?</h1>
+        <div class="input-container">
+            <span class="url-prefix">https://</span>
+            <input type="url" id="url" placeholder="Enter a URL">
+            <button id="submit">Go</button>
+        </div>
+    </div>
+    <div class="recent-urls">
+        <h2>Recent URLs</h2>
+        <ul id="recent-urls">
+            <li role="button" tabindex="0">https://www.google.com</li>
+            <li role="button" tabindex="0">https://www.youtube.com</li>
+            <li role="button" tabindex="0">https://www.facebook.com</li>
+            <li role="button" tabindex="0">https://www.twitter.com</li>
+            <li role="button" tabindex="0">https://www.instagram.com</li>
+            <li role="button" tabindex="0">https://www.linkedin.com</li>
+            <li role="button" tabindex="0">https://www.github.com</li>
+            <li role="button" tabindex="0">https://www.stackoverflow.com</li>
+        </ul>
+    </div>
 
-      iframe {
-        width: inherit;
-        min-height: inherit;
-      }
-    </style>
-  </head>
-  <body>
-    <iframe id="frame"></iframe>
-
-    <script>
-      const iframe = document.getElementById("frame");
-
-      const params = new URLSearchParams(location.search);
-      const launchUrl = params.get("launch") || "";
-
-      if (launchUrl) {
-        iframe.src = launchUrl;
-      }
-    </script>
-  </body>
+    <div class="hidden">
+        <cast-media-player></cast-media-player>
+    </div>
+</body>
 </html>

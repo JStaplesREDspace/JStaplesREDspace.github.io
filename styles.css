@@ -1,0 +1,123 @@
+:root {
+    --color-background: #000;
+    --color-primary: #111;
+    --color-secondary: #333;
+    --color-text: #fff;
+
+    --max-width: 1400px;
+
+    --font-family: monospace, sans-serif;
+}
+
+html, body {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.contents {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container {
+    display: flex;
+    width: 65vw;
+    min-width: 300px;
+    max-width: var(--max-width);
+    border: solid 1px var(--color-primary);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.input-container .url-prefix {
+    background: var(--color-primary);
+    padding: 0.65rem 1.15rem;
+    color: color-mix(in srgb, var(--color-text), transparent);
+    box-sizing: border-box;
+    font-weight: 600;
+}
+
+.input-container input {
+    flex: 1;
+    background: transparent;
+    padding: 0 1.15rem;
+    color: var(--color-text);
+    font-family: var(--font-family);
+    border: none;
+    outline: none;
+}
+
+.input-container button {
+    background: var(--color-primary);
+    padding: 0.65rem 1.15rem;
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.5;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-container:focus-within {
+    --color-primary: var(--color-secondary);
+}
+
+.recent-urls {
+    display: flex;
+    flex-flow: column;
+    width: 95vw;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    overflow: hidden;
+    gap: 0.5rem;
+}
+
+.recent-urls h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+#recent-urls {
+    display: flex;
+    flex-flow: row;
+    gap: 0.5rem;
+    overflow-x: auto;
+}
+
+.recent-urls h2 {
+    text-align: center;
+}
+
+#recent-urls li {
+    list-style: none;
+    padding: 0.5rem 1rem;
+    border: solid 1px var(--color-primary);
+    border-radius: 0.5rem;
+    background: var(--color-primary);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    line-height: 1.5;
+    outline: none;
+}
+
+#recent-urls li:hover, #recent-urls li:focus {
+    background: var(--color-secondary);
+}
+
+.hidden {
+    display: none;
+}
