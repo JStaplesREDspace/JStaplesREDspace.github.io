@@ -11,10 +11,10 @@ const handleSubmit = () => {
 };
 
 const handleDisableKeyNavigation = (e) => {
-    const navigationKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
-    if (navigationKeys.includes(e.key)) {
-        e.preventDefault();
-    }
+    // const navigationKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
+    // if (navigationKeys.includes(e.key)) {
+    //     e.preventDefault();
+    // }
 }
 
 // Initialize the cast receiver
