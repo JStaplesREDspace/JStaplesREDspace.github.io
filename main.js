@@ -5,7 +5,8 @@ const recentUrlsEl = document.getElementById('recent-urls');
 const handleSubmit = () => {
     const url = inputEl.value;
     if (url) {
-        console.log(url);
+        const fullUrl = `https://${url}`;
+        window.location.href = fullUrl;
     }
 };
 
@@ -18,6 +19,11 @@ const handleDisableKeyNavigation = (e) => {
 
 // Initialize the cast receiver
 window.cast.framework.CastReceiverContext.getInstance().start();
+
+// start our selector on the input
+setTimeout(() => {
+    inputEl.focus();
+}, 100);
 
 submitEl.addEventListener('click', handleSubmit);
 window.addEventListener('keydown', handleDisableKeyNavigation);
